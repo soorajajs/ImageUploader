@@ -1,0 +1,14 @@
+<h1>Photos</h1>
+
+<ul>
+  <% @images.each do |image| %>
+    <li>
+      <%= image_tag image.image_url(:thumb) %>
+      <%= link_to image.caption, image_path(image) %>
+    </li>
+  <% end %>
+</ul>
+
+<% if current_user %>
+  <%= link_to 'New Photo', new_image_path %>
+<% end %>

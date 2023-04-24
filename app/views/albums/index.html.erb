@@ -1,0 +1,26 @@
+<h1>Albums</h1>
+
+#<ul>
+#  <% @albums.each do |album| %>
+ #   <li><%= link_to album.name, album %></li>
+  #<% end %>
+#</ul>
+
+
+
+<% if current_user %>
+  <%= link_to 'New Album', new_album_path %>
+<% end %>
+
+
+
+<ul>
+  <% @albums.each do |album| %>
+    <li>
+      <%= link_to album.name, album_path(album) %>
+     <!-- <#%= link_to "Edit", edit_album_path(album) %>-->
+      <!--<#%= link_to "Delete", album_path(album), method: :delete, data: { confirm: "Are you sure?" } %>-->
+    </li>
+  <% end %>
+</ul>
+
