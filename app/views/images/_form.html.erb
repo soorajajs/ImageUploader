@@ -1,6 +1,6 @@
 <%= form_for [@album, @image], html: { multipart: true } do |f| %>
-    <%= f.label :photo_name %>
-    <%= f.file_field :photo_name %>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
     
     <%= f.label :caption %>
     <%= f.text_field :caption %>

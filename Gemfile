@@ -36,7 +36,7 @@ gem 'pry', '~> 0.14.1'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
 #gem paperclip
-gem 'paperclip', '~> 6.1'
+gem 'kt-paperclip'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -15,17 +15,13 @@ class AlbumsController < ApplicationController
     
       def create
         @album =  current_user.albums.build(album_params)
-     puts "inside create method"
-     puts @album.name
-     puts @album.save
-     puts @album.errors.full_messages
         if @album.save
-          puts "inside save"
           redirect_to @album, notice: 'Album was successfully created.'
         else
           render :new
         end
       end
+
       def edit
         @album = Album.find(params[:id])
       end

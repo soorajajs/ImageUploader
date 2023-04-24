@@ -15,21 +15,15 @@ class ImagesController < ApplicationController
   
   def create
     binding.pry
-      #  @album = Album.find(params[:album_id])
-      #  image_params = params.require(:image).permit(:image, :caption, :album_id)
-       # @image = @album.images.build(image: image_params[:image], caption: image_params[:caption], album_id: image_params[:album_id])
-      @image = @album.images.build(image_params)
-    
- 
+    @image = @album.images.build(image_params)
+    if @image.save
+      @images = @album.images.order(created_at: :desc).limit(25)
+      redirect_to @album, notice: 'Image was successfully uploaded.'
+    else
+      render :new
+    end
+  end
 
-        if @image.save
-         
-          redirect_to @album, notice: 'Image was successfully uploaded.'
-        else
-          @images = @album.images.order(created_at: :desc).limit(25)
-          render 'albums/show'
-        end
-      end
     def destroy
       @image= Image.find(params[:id])
       @image.destroy
@@ -38,7 +32,7 @@ class ImagesController < ApplicationController
       private
     
       def image_params
-        params.require(:image).permit(:photo_name, :caption, :album_id)
+        params.require(:image).permit(:file, :caption, :album_id)
       end
 
       def set_album
