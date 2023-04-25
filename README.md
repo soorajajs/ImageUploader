@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
 * Ruby version
+7.0.4
 
-* System dependencies
+Resource
+User- create user table and model
+- add validations
+- Email address must be present and unique
 
-* Configuration
+Image- Create image table and model
+- Paperclip gem attachment
+- add validations
 
-* Database creation
+Album Create album table and model
+- ensure album has name
+- add validations
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Associations
+-One-to-many
+  between User and Album
+-one-to-many
+ between User and Image
+ -one to many
+ between Album and Image
 
-* Deployment instructions
 
-* ...
+
+
+- 

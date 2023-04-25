@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
   end 
   
   def create
-    binding.pry
+    
     @image = @album.images.build(image_params)
     if @image.save
       @images = @album.images.order(created_at: :desc).limit(25)
